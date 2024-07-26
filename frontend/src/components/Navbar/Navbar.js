@@ -7,6 +7,7 @@ import * as actionType from "../../constants/actionTypes";
 import { styles } from "./styles";
 import AccountMenu from "../AccountMenu/AccountMenu";
 import { useCallback } from "react";
+import { getTokenAmount } from "../../actions/toss";
 
 const Navbar = () => {
   const [user, setUser] = useState(
@@ -37,6 +38,9 @@ const Navbar = () => {
     );
   }, [location]);
 
+  useEffect(() => {
+    dispatch(getTokenAmount());
+  }, [])
   const isBigScreen = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
   return (

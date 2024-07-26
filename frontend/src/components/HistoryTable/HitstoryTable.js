@@ -21,6 +21,8 @@ export default function HistoryTable({ recentWager }) {
             win: (item.win ? "Win" : "Loss"),
             payout: (item.payout),
             bonus: (item.bonus),
+            highlight: item.win,
+            highlightbonus: (item.bonus > 0 ? true : false),
         }
     })
     return (
@@ -28,6 +30,7 @@ export default function HistoryTable({ recentWager }) {
             <DataGrid
                 rows={row}
                 columns={columns}
+                getRowClassName={(params) => params.row.highlight ? params.row.highlightbonus ? 'bonus-row' : 'win-row' : ''}
                 initialState={{
                     pagination: {
                         paginationModel: { page: 0, pageSize: 10 },

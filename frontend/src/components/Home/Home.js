@@ -34,7 +34,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(recentWagers());
-    dispatch({ type: TOKENAMOUNT, data: user.token_amount })
   }, [])
 
   return (

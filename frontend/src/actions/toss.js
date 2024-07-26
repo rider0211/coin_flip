@@ -31,4 +31,12 @@ export const recentWagers = () => async (dispatch) => {
     }
 }
 
+export const getTokenAmount = () => async (dispatch) => {
+    try {
+        const { data } = await api.getTokenAmount();
+        dispatch({ type: TOKENAMOUNT, data: data.token_amount })
+    } catch (error) {
+        messages.error(error.response.data.message);
+    }
+}
 
