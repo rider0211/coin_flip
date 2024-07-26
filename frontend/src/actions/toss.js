@@ -9,7 +9,7 @@ export const wagerRequest = (flip, wagerAmount, wagering) => async (dispatch) =>
             choice: wagering
         };
         const { data } = await api.wagerRequest(param);
-        data.win ? messages.info("You are Winner") : messages.info("You are looser");;
+        data.win ? messages.info("You are Winner") : messages.info("You are loser");;
         dispatch({ type: WAGERHISTORY, data: data.recentWagers })
         dispatch({ type: WAGERSTATUS, data: data.result })
         dispatch({ type: TOKENAMOUNT, data: data.token_amount })
